@@ -13,6 +13,18 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
+/* colors */
+#define NUMCOLORS 6
+static const char colors[NUMCOLORS][ColLast][8] = {
+    /* border,    foreground, background */
+    { "#073642", "#657b83",  "#002b36" }, /* 0 = normal, grey on black */
+    { "#b58900", "#eee8d5",  "#002b36" }, /* 1 = selected, white on black */
+    { "#dc322f", "#002b36",  "#b58900" }, /* 2 = urgent, black on yellow */
+    { "#073642", "#839496",  "#073642" }, /* 3 = lightgrey on brightblack */
+    { "#073642", "#073642",  "#002b36" }, /* 4 = brightblack on black */
+    { "#073642", "#002b36",  "#073642" }, /* 5 = black on brightblack */
+};
+
 /* tagging */
 static const char *tags[] = { "term", "work", "web", "misc" };
 
@@ -46,7 +58,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][2], "-nf", colors[0][1], "-sb", colors[1][2], "-sf", colors[1][1], NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 static const char *finchcmd[] = { "urxvt", "-e", "finch", NULL };
 static const char *weechatcmd[] = { "urxvt", "-e", "weechat-curses", NULL };
@@ -55,8 +67,8 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY|ControlMask,           XK_f,      spawn,          {.v = finchcmd } },
-    { MODKEY|ControlMask,           XK_w,      spawn,          {.v = weechatcmd } },
+        { MODKEY|ControlMask,           XK_f,      spawn,          {.v = finchcmd } },
+        { MODKEY|ControlMask,           XK_w,      spawn,          {.v = weechatcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
