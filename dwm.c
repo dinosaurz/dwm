@@ -804,7 +804,7 @@ drawcoloredtext(char *text) {
 }
 
 void
-drawsquare(Bool filled, Bool empty, Bool invert, unsigned long col[ColLast]) {
+drawsquare(Bool filled, Bool empty, unsigned long col[ColLast]) {
 	int x;
 
         XSetForeground(dpy, dc.gc, col[ColFG]);
@@ -1228,7 +1228,7 @@ monocle(Monitor *m) {
 		if(ISVISIBLE(c))
 			n++;
 	if(n > 0) /* override layout symbol */
-		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
+		snprintf(m->ltsymbol, sizeof m->ltsymbol, "\uE000");
 	for(c = nexttiled(m->clients); c; c = nexttiled(c->next))
 		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, False);
 }

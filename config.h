@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
+static const char font[]            = "-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*" "," "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#3a3636";
 static const char normbgcolor[]     = "#3a3636";
 static const char normfgcolor[]     = "#6f6767";
@@ -26,7 +26,7 @@ static const char colors[NUMCOLORS][ColLast][8] = {
 };
 
 /* tagging */
-static const char *tags[] = { "term", "work", "web", "misc" };
+static const char *tags[] = { "\ue010", "\uE011", "\uE012", "\uE013" };
 
 static const Rule rules[] = {
 	/* class      instance      title         tags mask     isfloating   monitor */
@@ -41,9 +41,9 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "\uE002",        tile },    /* first entry is default */
+	{ "\uE006",   NULL },    /* no layout function means floating behavior */
+	{ "\uE000",   monocle },
 };
 
 /* key definitions */
