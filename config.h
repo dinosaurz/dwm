@@ -17,16 +17,19 @@ static const Bool topbar            = True;     /* False means bottom bar */
 #define NUMCOLORS 6
 static const char colors[NUMCOLORS][ColLast][8] = {
     /* border,    foreground, background */
-    { "#073642", "#657b83",  "#002b36" }, /* 0 = normal, grey on black */
-    { "#b58900", "#eee8d5",  "#002b36" }, /* 1 = selected, white on black */
-    { "#dc322f", "#002b36",  "#b58900" }, /* 2 = urgent, black on yellow */
-    { "#073642", "#839496",  "#073642" }, /* 3 = lightgrey on brightblack */
-    { "#073642", "#073642",  "#002b36" }, /* 4 = brightblack on black */
-    { "#073642", "#002b36",  "#073642" }, /* 5 = black on brightblack */
+    { "#3a3636", "#6f6767",  "#3a3636" }, /* 1 = normal, grey on black */
+    { "#6f6767", "#e6e6e6",  "#3a3636" }, /* 2 = selected, white on black */
+    { "#c37561", "#c37561",  "#3a3636" }, /* 3 = urgent, red on black */
+    { "#a0a57e", "#a0a57e",  "#3a3636" }, /* 4 = green on black */
+    { "#d1a375", "#d1a375",  "#3a3636" }, /* 5 = yellow on black */
+    { "#7985a3", "#7985a3",  "#3a3636" }, /* 6 = blue on black */
+//    { "#ab716d", "#ab716d",  "#3a3636" }, /* 7 = magenta on black */
+//    { "#98b9b1", "#98b9b1",  "#3a3636" }, /* 8 = cyan on black */
+//    { "#d0d0d0", "#d0d0d0",  "#3a3636" }  /* 9 = grey on black */
 };
 
 /* tagging */
-static const char *tags[] = { "\ue010", "\uE011", "\uE012", "\uE013" };
+static const char *tags[] = { "[ term ]", "[ irc ]", "[ web ]", "[ other ]" };
 
 static const Rule rules[] = {
 	/* class      instance      title         tags mask     isfloating   monitor */
@@ -40,10 +43,10 @@ static const int nmaster      = 1;    /* number of clients in master area */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "\uE002",        tile },    /* first entry is default */
-	{ "\uE006",   NULL },    /* no layout function means floating behavior */
-	{ "\uE000",   monocle },
+	/* symbol            arrange function */
+	{ "[ tile ]",    tile },    /* first entry is default */
+	{ "[ float ]",   NULL },    /* no layout function means floating behavior */
+	{ "[ mono  ]",    monocle },
 };
 
 /* key definitions */
